@@ -1,11 +1,11 @@
-import { DUMMY_NEWS } from "@/dummy-news";
+import { getNewsItem } from "@/lib/news";
 
 
-export default function ImagePage({ params }) {
+export default async function ImagePage({ params }) {
 
 
     const slug = params.slug;
-    const item = DUMMY_NEWS.find((x)=>(x.slug == slug))
+    const item =await getNewsItem(slug)  
 
     if(!item){
         notFound()
